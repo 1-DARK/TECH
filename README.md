@@ -2,7 +2,7 @@ Here’s a **GitHub README file** for your project based on the provided details
 
 ---
 
-# TechConf 2023 Website
+# TechConf  Website
 
 Welcome to the **TechConf 2023 Website**! This project is a responsive and modern website for a technology conference. It includes multiple pages, interactive features, and a clean design to showcase the event details, speakers, schedule, sponsors, and more.
 
