@@ -9,17 +9,17 @@
     <link rel="stylesheet" href="styles.css">
     <script>
         tailwind.config = {
-         darkMode: 'class',
-         theme: {
-             extend: {
-                 colors: {
-                     primary: '#3498db',
-                     secondary: '#2ecc71',
-                 }
-             }
-         }
-     }
- </script>
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3498db',
+                        secondary: '#2ecc71',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <style>
     /* Animation for fading in and sliding up */
@@ -33,9 +33,28 @@
             transform: translateY(0);
         }
     }
+
     body {
-            font-family: 'Poppins', sans-serif;
-        }
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px; /* Base font size */
+    }
+
+    h1 {
+        font-size: 2.5rem; /* 40px */
+    }
+
+    h2 {
+        font-size: 2rem; /* 32px */
+    }
+
+    nav ul li a {
+        font-size: 1.2rem; /* 19.2px */
+    }
+
+    .text-sm {
+        font-size: 0.875rem; /* 14px */
+    }
+
     /* Class to apply the animation */
     .fade-in-up {
         opacity: 0; /* Start invisible */
@@ -48,8 +67,9 @@
         opacity: 1;
         transform: translateY(0);
     }
-    .delay-0{
-        transition-delay: .1 ;
+
+    .delay-0 {
+        transition-delay: 0.1s;
     }
 
     /* Delay classes for staggered animations */
@@ -72,14 +92,12 @@
     .delay-5 {
         transition-delay: 1s;
     }
+
     .delay-6 {
         transition-delay: 1.2s;
     }
-    body{
-    font-size: 20px;
-}
 </style>
-<body class="bg-gray-100 dark:bg-gray-900 text-3xl text-gray-800 dark:text-gray-200 transition-colors duration-300">
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
     <header class="bg-white dark:bg-gray-800 shadow-md">
         <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
             <!-- Logo -->
@@ -88,7 +106,7 @@
             <!-- Desktop Menu and Dark Mode Toggle -->
             <div class="flex items-center space-x-4">
                 <!-- Desktop Menu -->
-                <ul class="hidden lg:flex space-x-4 text-2xl">
+                <ul class="hidden lg:flex space-x-4">
                     <li><a href="index.html" class="hover:text-blue-600 dark:hover:text-blue-400">HOME</a></li>
                     <li><a href="speakers.html" class="hover:text-blue-600 dark:hover:text-blue-400">SPEAKERS</a></li>
                     <li><a href="schedule.html" class="hover:text-blue-600 dark:hover:text-blue-400">SCHEDULES</a></li>
@@ -126,7 +144,7 @@
 
     <main class="container mx-auto px-4 py-8">
         <h1 class="text-3xl font-bold mb-8 text-center fade-in-up delay-0">OUR SPEAKERS</h1>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 fade-in-up delay-1">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYdbNS-SHDs1XaC2hCKeUubziwsUvKNg4gBQ&s" alt="Speaker 1" class="w-32 h-32 rounded-full mx-auto mb-4">
                 <h2 class="text-xl font-semibold mb-2 text-center">Jane Doe</h2>
@@ -163,14 +181,12 @@
                 <p class="text-gray-600 dark:text-gray-400 text-center mb-4">Blockchain Expert, CryptoFuture</p>
                 <p class="text-sm">Johnson Dane is a renowned blockchain expert and the founder of CryptoFuture. She has been at the forefront of cryptocurrency innovation and is a frequent speaker on the future of decentralized technologies.</p>
             </div>
-            <!-- Add more speaker cards as needed -->
         </div>
     </main>
 
     <footer class="bg-gray-800 text-white py-8">
         <div class="container mx-auto px-6">
             <div class="flex flex-wrap justify-between">
-             
                 <div class="w-full md:w-1/4 mb-6 md:mb-0">
                     <h3 class="text-lg font-semibold mb-2">Quick Links</h3>
                     <ul class="text-sm">
@@ -180,7 +196,6 @@
                         <li><a href="sponsors.html" class="hover:text-blue-300">Sponsors</a></li>
                         <li><a href="about.html" class="hover:text-blue-300">About</a></li>
                         <li><a href="contact.html" class="hover:text-blue-300">Contact</a></li>
-                    </ul>
                     </ul>
                 </div>
                 <div class="w-full md:w-1/4 mb-6 md:mb-0">
@@ -217,23 +232,26 @@
 
     <script src="script.js"></script>
     <script>
-              document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.fade-in-up');
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.fade-in-up');
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate');
-            }
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, {
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            });
+
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+
+            // Update the current year in the footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
         });
-    }, {
-        threshold: 0.1 // Trigger when 10% of the element is visible
-    });
-
-    animatedElements.forEach(element => {
-        observer.observe(element);
-    });
-});
     </script>
 </body>
 </html>
