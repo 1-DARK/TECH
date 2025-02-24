@@ -13,7 +13,6 @@
             theme: {
                 extend: {
                     colors: {
-                      
                         primary: '#2ecc71',
                         primary: '#3498db',
                     }
@@ -23,6 +22,12 @@
     </script>
 </head>
 <style>
+    /* Base font size */
+    body {
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px; /* Adjust this value to control the overall size */
+    }
+
     /* Animation for fading in and sliding up */
     @keyframes fadeInUp {
         from {
@@ -34,13 +39,10 @@
             transform: translateY(0);
         }
     }
-    body {
-            font-family: 'Poppins', sans-serif;
-        }
 
     /* Class to apply the animation */
     .fade-in-up {
-        opacity: 0; /* Start invisible */
+        opacity: 0;
         transform: translateY(20px);
         transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     }
@@ -52,30 +54,57 @@
     }
 
     /* Delay classes for staggered animations */
-    .delay-0{
-        transition-delay: 0.1s;
-    }
-    .delay-1 {
-        transition-delay: 0.2s;
+    .delay-0 { transition-delay: 0.1s; }
+    .delay-1 { transition-delay: 0.2s; }
+    .delay-2 { transition-delay: 0.4s; }
+    .delay-3 { transition-delay: 0.6s; }
+    .delay-4 { transition-delay: 0.8s; }
+    .delay-5 { transition-delay: 1s; }
+    .delay-6 { transition-delay: 1.2s; }
+
+    /* Header and Navigation */
+    header nav a {
+        font-size: 1.2rem; /* Adjust as needed */
     }
 
-    .delay-2 {
-        transition-delay: 0.4s;
+    /* Hero Section */
+    .hero h1 {
+        font-size: 3rem; /* Adjust as needed */
     }
 
-    .delay-3 {
-        transition-delay: 0.6s;
+    .hero p {
+        font-size: 1.5rem; /* Adjust as needed */
     }
 
-    .delay-4 {
-        transition-delay: 0.8s;
+    .hero a {
+        font-size: 1.2rem; /* Adjust as needed */
+        padding: 0.75rem 1.5rem; /* Adjust as needed */
     }
 
-    .delay-5 {
-        transition-delay: 1s;
+    /* Featured Speakers Section */
+    .featured-speakers h2 {
+        font-size: 2rem; /* Adjust as needed */
     }
-    .delay-6 {
-        transition-delay: 1.2s;
+
+    .featured-speakers h3 {
+        font-size: 1.5rem; /* Adjust as needed */
+    }
+
+    .featured-speakers p {
+        font-size: 1rem; /* Adjust as needed */
+    }
+
+    /* Footer */
+    footer h3 {
+        font-size: 1.2rem; /* Adjust as needed */
+    }
+
+    footer ul li a {
+        font-size: 1rem; /* Adjust as needed */
+    }
+
+    footer p {
+        font-size: 0.875rem; /* Adjust as needed */
     }
 </style>
 <body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
@@ -116,7 +145,7 @@
         <div id="mobileMenu" class="lg:hidden hidden bg-white dark:bg-gray-800">
             <ul class="flex flex-col space-y-2 p-4 text-2xl">
                 <li><a href="index.html" class="block hover:text-blue-600 dark:hover:text-blue-400">HOME</a></li>
-                <li><a href="speakers.html" class="block hover:text-blue-600 dark:hover:text-blue-400">SPEKERS</a></li>
+                <li><a href="speakers.html" class="block hover:text-blue-600 dark:hover:text-blue-400">SPEAKERS</a></li>
                 <li><a href="schedule.html" class="block hover:text-blue-600 dark:hover:text-blue-400">SCHEDULE</a></li>
                 <li><a href="sponsors.html" class="block hover:text-blue-600 dark:hover:text-blue-400">SPONSORS</a></li>
                 <li><a href="about.html" class="block hover:text-blue-600 dark:hover:text-blue-400">ABOUT</a></li>
@@ -245,7 +274,7 @@
             const now = new Date().getTime();
             const distance = conferenceDate - now;
 
-            const days = Math.floor(distance / (1000 * 60 * 5 * 60 * 24));
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
